@@ -15,8 +15,16 @@ const ARG_ADD_FILES: &str = "--add-files";
 
 /// Processes given command line arguments.
 pub fn process_args(args: &Vec<String>) {
-    // run,
-    if args.len() > 1 && !args.contains(&ARG_HELP.to_string()) {
+    if args.contains(&ARG_HELP.to_string()) {
+        match Path::new(&args[0]).file_name() {
+            Some(filename) => {
+                print_help(filename.to_str().unwrap_or(&args[0]));
+            }
+            None => {
+                print_help(&args[0]);
+            }
+        }
+    } else {
         let args = &args[1..]; // remove the first one (excutable)
 
         if cfg!(debug_assertions) {
@@ -44,16 +52,6 @@ pub fn process_args(args: &Vec<String>) {
             }
             Err(error) => {
                 println!("error: {}", error);
-            }
-        }
-    } else {
-        // or print help messages
-        match Path::new(&args[0]).file_name() {
-            Some(filename) => {
-                print_help(filename.to_str().unwrap_or(&args[0]));
-            }
-            None => {
-                print_help(&args[0]);
             }
         }
     }

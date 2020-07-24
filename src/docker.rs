@@ -127,7 +127,6 @@ USER nobody:nobody
 
 # Entry point for the built application
 ENTRYPOINT ["/{bin}"]
-
 "####,
         bin = bin_name,
         exposed_ports = ports,
