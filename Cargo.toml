@@ -1,8 +1,16 @@
 [package]
 name = "rockerize"
-version = "0.0.1"
+description = "Dockerize your rust application easily"
 authors = ["Sungjin Han <meinside@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/meinside/rockerize"
+repository = "https://github.com/meinside/rockerize"
+license = "MIT"
+keywords = ["docker"]
+categories = ["command-line-utilities"]
+default-run = "rockerize"
 edition = "2018"
+version = "0.0.1"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
